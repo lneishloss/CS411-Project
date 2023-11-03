@@ -1,0 +1,4 @@
+#This File lists helpful commands 
+
+#Run the website
+npm run dev
