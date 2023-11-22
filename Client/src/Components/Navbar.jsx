@@ -7,6 +7,7 @@ export const Navbar = () => {
   return <nav>
     <Link to="/LandingPage" id="homepage" className="Home">CareMate</Link>
     <ul>
+      <li><NavLink to="/Profile">Profile</NavLink></li>
       <li><NavLink to="/LocalPharmacies">Local Pharmacies</NavLink></li>
       <li><NavLink to="/HealthChatbot">Health Chatbot</NavLink></li>
       <li><NavLink to="/AboutUs">About Us</NavLink></li>
