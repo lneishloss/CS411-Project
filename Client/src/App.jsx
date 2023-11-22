@@ -7,6 +7,7 @@ import { AboutUs } from './Components/Pages/aboutUs'
 import { HealthChatbot } from './Components/Pages/healthChatbot'
 import { LocalPharmacies } from './Components/Pages/localPharmacies'
 import { LandingPage } from './Components/Pages/LandingPage'
+import { Profile } from './Components/Pages/Profile'
 
 
 
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route path="/LandingPage" element={<LandingPage />} />
         <Route path="/AboutUs" element={<AboutUs />} />
+        <Route path="/Profile" element={<Profile />} />
         <Route path="/HealthChatbot" element={<HealthChatbot />} />
         <Route path="/LocalPharmacies" element={<LocalPharmacies />} />
       </Routes>
