@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Navbar from "./Components/Navbar"
 import { Routes, Route } from 'react-router-dom'
@@ -8,6 +7,8 @@ import { HealthChatbot } from './Components/Pages/healthChatbot'
 import { LocalPharmacies } from './Components/Pages/localPharmacies'
 import { LandingPage } from './Components/Pages/LandingPage'
 import { Profile } from './Components/Pages/Profile'
+import { useEffect } from 'react'
+import axios from "axios";
 
 
 
