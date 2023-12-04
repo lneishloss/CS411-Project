@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import Navbar from "./Components/Navbar"
 import { Routes, Route } from 'react-router-dom'
+import {Login } from './Components/Pages/Login'
 import { AboutUs } from './Components/Pages/aboutUs'
 import { HealthChatbot } from './Components/Pages/healthChatbot'
 import { LocalPharmacies } from './Components/Pages/localPharmacies'
@@ -24,6 +25,7 @@ function App() {
         <Route path="/Profile" element={<Profile />} />
         <Route path="/HealthChatbot" element={<HealthChatbot />} />
         <Route path="/LocalPharmacies" element={<LocalPharmacies />} />
+        <Route path="/Login" element={<Login />} />
       </Routes>
     </div>
     </>
