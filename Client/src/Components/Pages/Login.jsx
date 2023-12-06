@@ -10,12 +10,12 @@ import axios from 'axios'
 
 export const Login = () => {
   return (
-    <div id='SignIn'>
-        <GoogleLogin
-          clientId='1039607616867-frb9oh2eqt425ld30k3qh3fo7rtsepk4.apps.googleusercontent.com' >
-          
-        </GoogleLogin>
-    </div>
+    <div className="Login" >
+      <br></br>
+      <br></br>
+      Login
+    
+      </div>
 
  
   )
