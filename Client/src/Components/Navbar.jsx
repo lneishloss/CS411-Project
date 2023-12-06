@@ -11,7 +11,6 @@ export const Navbar = () => {
       <li><NavLink to="/LocalPharmacies">Local Pharmacies</NavLink></li>
       <li><NavLink to="/HealthChatbot">Health Chatbot</NavLink></li>
       <li><NavLink to="/AboutUs">About Us</NavLink></li>
-      <li><NavLink to="/Login">Login</NavLink></li>
     </ul>
   </nav>;
 }
