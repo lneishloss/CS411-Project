@@ -1,11 +1,11 @@
 import React from 'react'
 
-export const HealthChatbot = () => {
+export const Workouts = () => {
   return (
     <div>
       <br></br>
       <br></br>
-      Health Chatbot
+      Workouts
     </div>
   )
 }
