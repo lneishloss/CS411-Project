@@ -9,12 +9,21 @@ router.use(express.json());
 
 //Post Method --> This will post infomration to the MongoDB database
 router.post('/post', async (req, res) => {
+  const { name, email } = req.body;
   const data = new Model({
     name: req.body.name,
-    age: req.body.age
+    email: req.body.email
   })
 
   try {
+
+    const existingUser = await Model.findOne({ email });
+
+    if (existingUser) {
+      // Handle the case where the email already exists (e.g., return an error)
+      return res.status(409).json({ message: 'Email already exists' });
+    }
+
     const dataToSave = await data.save();
     res.status(200).json(dataToSave)
   }
@@ -28,10 +37,10 @@ router.get('/getAll', (req, res) => {
   res.send('Get All API')
 })
 
-//Get by ID Method (Retrieve information regarding a single person)
-router.get('/getOne/:id', async (req, res) => {
+//Get by email Method (Retrieve information regarding a single person)
+router.get('/getOne/:email', async (req, res) => {
   try {
-    const data = await Model.findById(req.params.id);
+    const data = await Model.findOne({ email: req.params.email });
     res.json(data)
   }
   catch (error) {
