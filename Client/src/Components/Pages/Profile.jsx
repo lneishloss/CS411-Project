@@ -1,12 +1,14 @@
 import React from 'react'
 import { useEffect, useState } from 'react'
+import { useUserContext } from '../../UserContext';
 
 export const Profile = () => {
-  const [acc, setAcc] = useState(null)
+  const [acc, setAcc] = useState(null);
+  const { userEmail } = useUserContext();
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('http://localhost:3000/api/getOne/655e6a09075f0c8f8aa40b27')
+      const response = await fetch('http://localhost:3000/api/getOne/' + userEmail)
       const json = await response.json()
 
       if (response.ok) {
@@ -26,7 +28,7 @@ export const Profile = () => {
         {acc ? (
           <>
             <p> Name: {acc.name}</p>
-            <p> Age: {acc.age}</p>
+            <p> Email: {acc.email}</p>
           </>
         ) : (
           <p>Loading...</p>
