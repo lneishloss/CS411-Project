@@ -21,6 +21,7 @@
     "mongodb": "^6.3.0",
     "mongoose": "^8.0.2",
     "npm": "^10.2.4",
+    "openai": "^4.20.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-google-login": "^5.2.2",

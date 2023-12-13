@@ -3,15 +3,17 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Recipes.css';
 
-export const Recipes = () => {
 
+export const Recipes = () => {
+  var chatInput = "";
   const [recipe, setRecipe] = useState();
+  const [chatGPTResponse, setChatGPTResponse] = useState('');
 
   // Link to Spoonacular Search API Documentation: https://spoonacular.com/food-api/docs#Get-Random-Recipes
   async function getRandomRecipe() {
     try {
       //IMPORTANT! Update the below variable with your own api key!!
-      const apiKey = '112d1a25d2e841c3911fdc7b237ea979';
+      const apiKey = '';
 
       //making spoonacular api call to get a random recipe
       let resp = await axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${apiKey}`);
@@ -19,11 +21,43 @@ export const Recipes = () => {
 
       //store the random recipe into the recipe variable
       setRecipe(resp.data.recipes[0]);
+
+
+      // Get the instructions from the recipe
+      const instructions = recipe?.analyzedInstructions?.flatMap(instruction => instruction.steps.map(step => step.step)).join(' ');
+      console.log('Instructions:', instructions);
+
+      chatInput = recipe?.instructions;
+      var customPrompt = "Using the information below, please provide a very short discription of how long the recipe will take to make, how costly it will be (give an actual number and an estimation if needed), and what equipment will be needed. Answer these questions on the following text:";
+
+      // Make ChatGPT API call
+      const chatGPTApiKey = '';
+      const chatGPTResponse = await axios.post('https://api.openai.com/v1/chat/completions', {
+        model: 'gpt-3.5-turbo',
+        messages: [
+          { role: 'system', content: 'You are a helpful assistant.' },
+          { role: 'user', content: customPrompt + instructions },
+        ],
+      }, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${chatGPTApiKey}`,
+        },
+
+      });
+
+      setChatGPTResponse(chatGPTResponse.data.choices[0].message.content);
+
+
     } catch (e) {
       console.log(e);
     }
 
   }
+
+
+
+
 
   useEffect(() => {
     getRandomRecipe();
@@ -67,7 +101,10 @@ export const Recipes = () => {
         }
       </div >
       <div>
-
+        <div>
+          <h2>Quick Summary of Cost, Time, and Equipment Needed</h2>
+          <p>{chatGPTResponse}</p>
+        </div>
       </div>
 
     </div >
