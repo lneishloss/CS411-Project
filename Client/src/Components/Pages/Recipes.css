@@ -1,0 +1,18 @@
+.row {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 3vw;
+  max-width: 80vw;
+  align-content: center;
+  margin: auto;
+  margin-bottom: 3vw;
+}
+
+.row div {
+  margin-top: 3vw;
+}
+
+.row img {
+  margin-top: 3vw;
+}
