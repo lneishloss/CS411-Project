@@ -1,6 +1,6 @@
 # CareMate
 
-A website dedicated to helping you achieve better health!
+A healthcare platform dedicated to helping you achieve your health and wellness goals-- one step at a time! 
 
 This project was created through the MERN stack and utilizes various APIs, including the Spoonacular and ChatGPT APIs. 
 
